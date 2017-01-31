@@ -1,0 +1,259 @@
+Harshada Bhide-Apte
+
+Note - After running "docker-compose up", sometimes the 3 nodes cannot immediately connect to dbs and need to be restarted from Kitematic UI. This is because the dbs may take longer to start working.
+-------------------------------------Structure-----------------------------------------
+db1 - 192.168.99.100:3306
+db2 - 192.168.99.100:3307
+db3 - 192.168.99.100:3308
+
+node1 - 192.168.99.100:3000
+node2 - 192.168.99.100:3001
+node3 - 192.168.99.100:3002
+
+clinet.py - http://localhost:5000
+
+Another way to run client with postman for testing is -
+clinet_server.py - http://localhost:5000/expenseHash
+
+-------------------------------------Files-----------------------------------------
+
+client/client.py 
+This file contains the code which takes input from the user and passes it to one of the three servers depending on which server is selected by ConsistentHashRing.
+
+client/hashRing.py 
+This file contains the code for Consistent hashing.
+
+app/app.py
+This file contains code for expense manager which stores the "id" accepted in POST in the db and GET request is based on the same "id".
+
+client/client_server.py
+It is another version of client which accepts Json input and passes it to one of the three servers depending on which server is selected by ConsistentHashRing. It was originally written for testing using Postman.
+
+--------------------------------------Result---------------------------------------
+Ids stored at node2 - 6, 9
+Ids stored at node3 - 1, 2, 3, 4, 5, 7, 8, 10
+Ids stored at node1 - 170
+
+As no Id from 1 to 10 was stored on node3, I used id=170 for testing purpose.
+--------------------------------------Response---------------------------------------
+
+http://192.168.99.100:3000/v1/expenses/1
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/1
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/1
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo1@bar.com",
+  "estimated_costs": "700",
+  "id": 1,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 1",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/2
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/2
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/2
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo2@bar.com",
+  "estimated_costs": "700",
+  "id": 2,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 2",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/3
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/3
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/3
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo3@bar.com",
+  "estimated_costs": "700",
+  "id": 3,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 3",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/4
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/4
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/4
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo4@bar.com",
+  "estimated_costs": "700",
+  "id": 4,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 4",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/5
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/5
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/5
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo5@bar.com",
+  "estimated_costs": "700",
+  "id": 5,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 5",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/6
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/6
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo6@bar.com",
+  "estimated_costs": "700",
+  "id": 6,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 6",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+
+http://192.168.99.100:3002/v1/expenses/6
+404 Not Found
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/7
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/7
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/7
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo7@bar.com",
+  "estimated_costs": "700",
+  "id": 7,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 7",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/8
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/8
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/8
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo8@bar.com",
+  "estimated_costs": "700",
+  "id": 8,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 8",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/9
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/9
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo9@bar.com",
+  "estimated_costs": "700",
+  "id": 9,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 9",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+
+http://192.168.99.100:3002/v1/expenses/9
+404 Not Found
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/10
+404 Not Found
+
+http://192.168.99.100:3001/v1/expenses/10
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/10
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo10@bar.com",
+  "estimated_costs": "700",
+  "id": 10,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 10",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+-----------------------------------------------------------------------------
+http://192.168.99.100:3000/v1/expenses/170
+{
+  "category": "office supplies",
+  "decision_date": "",
+  "description": "iPad for office use",
+  "email": "foo170@bar.com",
+  "estimated_costs": "700",
+  "id": 170,
+  "link": "http://www.apple.com/shop/buy-ipad/ipad-pro",
+  "name": "Foo 170",
+  "status": "pending",
+  "submit_date": "12-10-2016"
+}
+
+http://192.168.99.100:3001/v1/expenses/170
+404 Not Found
+
+http://192.168.99.100:3002/v1/expenses/170
+404 Not Found
+-----------------------------------------------------------------------------
