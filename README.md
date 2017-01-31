@@ -1,2 +1,0 @@
-# Harshada
-SJSU assignments
