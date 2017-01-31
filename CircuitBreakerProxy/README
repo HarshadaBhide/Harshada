@@ -1,0 +1,49 @@
+Harshada Bhide-Apte
+-------------------------------------Setup-----------------------------------------
+mysql running on local machine : localhost:3306
+Redis contaner running on Docker : 192.168.99.100:6379
+command prompt 1 : run server.py
+command prompt 2 : run app1.py
+command prompt 3 : run app2.py
+command prompt 4 : run app3.py
+From Postman send request to http://localhost:9090/    - For testing GET at this URL will show text data. POST request will work at "/v1/expenses"
+-------------------------------------Structure-----------------------------------------
+app1 - localhost:3001
+app1 - localhost:3002
+app1 - localhost:3003
+server - localhost:9090
+-------------------------------------Files-----------------------------------------
+app1.py, app2.py, app3.py 
+These files contain the code for expense tracker. THey should be run independently. When each starts, it registers it self with redis.
+
+server.py 
+This file contains the code for proxy which forwards the requests to individiual app servers. It also integrates with circuit breaker.
+
+cb_ans.py
+This file contains code for CircuitBreaker.
+
+model1.py
+This file contains the model for expense tracker.
+--------------------------------------Result---------------------------------------
+After starting server.py - 
+('Available Servers : ', [])
+
+After starting app1.py, app2.py and app3.py - 
+('Available Servers : ', ['3001', '3002', '3003'])
+
+After sending test request from POSTMAN -
+Hello from Bhide Flask App!!
+
+After closing app server running at 3002, keep sending requests from Postman - 
+('Available Servers : ', ['3001', '3002', '3003'])
+CONNECTION FAILURE
+CONNECTION FAILURE
+('Available Servers : ', ['3001', '3002', '3003'])
+[('127.0.0.1', '3003'), ('127.0.0.1', '3001')]
+[('127.0.0.1', '3003'), ('127.0.0.1', '3001')]
+------------------Circuit Breaker is OPEN--------------
+CONNECTION FAILURE
+('Available Servers : ', ['3001', '3003'])
+
+At third filure circuit breaker is opened and port 3002 is removed from available servers.
+-----------------------------------------------------------------------------
