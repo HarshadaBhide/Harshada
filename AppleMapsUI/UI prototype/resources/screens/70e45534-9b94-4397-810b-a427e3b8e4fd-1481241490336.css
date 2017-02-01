@@ -1,0 +1,86 @@
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd > #backgroundBox {
+  background-color: transparent;
+  background-image: none;
+  position: absolute;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd > #alignmentBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Image_1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 375px;
+  height: 666px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Button {
+  position: absolute;
+  top: 17px;
+  left: 0px;
+  width: 62px;
+  height: 37px;
+  background-color: #FFFFFF;
+  background-image: none;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #F8F7F6;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #F8F7F6;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #F8F7F6;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #F8F7F6;
+  border-radius: 5px 5px 5px 5px;
+  padding-top: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  opacity: 0.0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 27px;
+  font-size: 14.0pt;
+  font-family: Roboto-Light,Arial;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Button .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Button span {
+  color: #157EFB;
+  text-align: center;
+  text-decoration: none;
+  font-family: Roboto-Light,Arial;
+  font-size: 14.0pt;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Button span#rtr-s-Button_0 {
+  color: #157EFB;
+  text-align: center;
+  text-decoration: none;
+  font-family: Roboto-Light,Arial;
+  font-size: 14.0pt;
+  line-height: 0px;
+}
+#jim-container .ui-page {
+  overflow-x: hidden;
+}
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

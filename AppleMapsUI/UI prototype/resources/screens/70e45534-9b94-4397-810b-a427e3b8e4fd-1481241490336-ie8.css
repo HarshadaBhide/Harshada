@@ -1,0 +1,23 @@
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Image_1 {
+  -ms-filter: ;
+  filter: ;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Button {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0) ;
+  filter: alpha(opacity=0) ;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+#jim-container .ui-page {
+  overflow-x: hidden;
+}
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

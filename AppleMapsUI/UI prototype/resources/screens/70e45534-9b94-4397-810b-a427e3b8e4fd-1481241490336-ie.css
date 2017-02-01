@@ -1,0 +1,38 @@
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Image_1 {
+  -ms-transform: rotate(0.0deg);
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd #s-Button {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #F8F7F6;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #F8F7F6;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #F8F7F6;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #F8F7F6;
+  border-radius: 5px 5px 5px 5px;
+  padding-top: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  width: 62px;
+  height: 37px;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+  -ms-transform: rotate(0.0deg);
+}
+#jim-container .ui-page {
+  overflow-x: hidden;
+}
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+#s-70e45534-9b94-4397-810b-a427e3b8e4fd > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

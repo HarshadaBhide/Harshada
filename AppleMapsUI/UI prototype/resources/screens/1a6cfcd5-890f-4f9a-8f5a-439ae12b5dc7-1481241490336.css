@@ -1,0 +1,241 @@
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 > #backgroundBox {
+  background-color: transparent;
+  background-image: none;
+  position: absolute;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 > #alignmentBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Image_1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 375px;
+  height: 667px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Rectangle_4 {
+  position: absolute;
+  top: 120px;
+  left: -2px;
+  width: 375px;
+  height: 76px;
+  background-color: #651BC8;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #6BCDFD;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: #6BCDFD;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #6BCDFD;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #6BCDFD;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 18px;
+  font-size: 10.0pt;
+  font-family: Roboto-Regular,Arial;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Rectangle_4 .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Rectangle_4 span {
+  color: #404040;
+  text-align: center;
+  text-decoration: none;
+  font-family: Roboto-Regular,Arial;
+  font-size: 10.0pt;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Rectangle_4 span#rtr-s-Rectangle_4_0 {
+  color: #404040;
+  text-align: center;
+  text-decoration: none;
+  font-family: Roboto-Regular,Arial;
+  font-size: 10.0pt;
+  line-height: 0px;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_7 {
+  position: absolute;
+  top: 158px;
+  left: 193px;
+  width: 48px;
+  height: 20px;
+  border-top-width: 4px;
+  border-top-style: solid;
+  border-top-color: #FFFFFF;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  transform: rotate(270deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_8 {
+  position: absolute;
+  top: 158px;
+  left: 156px;
+  width: 48px;
+  height: 20px;
+  border-top-width: 4px;
+  border-top-style: solid;
+  border-top-color: #FFFFFF;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  transform: rotate(270deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_9 {
+  position: absolute;
+  top: 150px;
+  left: 114px;
+  width: 64px;
+  height: 20px;
+  border-top-width: 4px;
+  border-top-style: solid;
+  border-top-color: #6DFD30;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  transform: rotate(270deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_10 {
+  position: absolute;
+  top: 523px;
+  left: 133px;
+  width: 85px;
+  height: 8px;
+  border-top-width: 8px;
+  border-top-style: solid;
+  border-top-color: #FC361D;
+  -webkit-transform: rotate(92deg);
+  -moz-transform: rotate(92deg);
+  transform: rotate(92deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_11 {
+  position: absolute;
+  top: 343px;
+  left: 92px;
+  width: 75px;
+  height: 4px;
+  border-top-width: 4px;
+  border-top-style: solid;
+  border-top-color: #FF9900;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_12 {
+  position: absolute;
+  top: 446px;
+  left: 155px;
+  width: 75px;
+  height: 8px;
+  border-top-width: 8px;
+  border-top-style: solid;
+  border-top-color: #FF9900;
+  -webkit-transform: rotate(92deg);
+  -moz-transform: rotate(92deg);
+  transform: rotate(92deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Button_2 {
+  position: absolute;
+  top: 611px;
+  left: 18px;
+  width: 77px;
+  height: 25px;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #699CFC;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: #699CFC;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #699CFC;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #699CFC;
+  border-radius: 2px 2px 2px 2px;
+  padding-top: 1px;
+  padding-right: 1px;
+  padding-bottom: 1px;
+  padding-left: 1px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 12.0pt;
+  font-family: Roboto-Regular,Arial;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Button_2 .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Button_2 span {
+  color: #007DFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Roboto-Regular,Arial;
+  font-size: 12.0pt;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Button_2 span#rtr-s-Button_2_0 {
+  color: #007DFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Roboto-Regular,Arial;
+  font-size: 12.0pt;
+  line-height: 0px;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Line_13 {
+  position: absolute;
+  top: 456px;
+  left: 141px;
+  width: 75px;
+  height: 8px;
+  border-top-width: 8px;
+  border-top-style: solid;
+  border-top-color: #FF9900;
+  -webkit-transform: rotate(93deg);
+  -moz-transform: rotate(93deg);
+  transform: rotate(93deg);
+  box-shadow: none;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 #s-Image_2 {
+  position: absolute;
+  top: 568px;
+  left: 163px;
+  width: 53px;
+  height: 50px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+#jim-container .ui-page {
+  overflow-x: hidden;
+}
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+#s-1a6cfcd5-890f-4f9a-8f5a-439ae12b5dc7 > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
