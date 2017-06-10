@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    
+    <title>Stock Project</title>
+    <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      var companys = ["{{var_top3_stocks[0]}}", "{{var_top3_stocks[1]}}", "{{var_top3_stocks[2]}}", "{{var_top3_stocks[3]}}"];
+      var strategy = ["{{var_strategy[0]}}", "{{var_strategy[0]}}", "{{var_strategy[1]}}", "{{var_strategy[1]}}"];
+      var names = ["{{var_companies[0]}}", "{{var_companies[1]}}", "{{var_companies[2]}}", "{{var_companies[3]}}"];
+      var ratios = [{{var_ratio_list[0]}},{{var_ratio_list[1]}},{{var_ratio_list[2]}},{{var_ratio_list[3]}}];
+      var day1 = [{{var_stocks_profolio[0]}}];
+      var day2 = [{{var_stocks_profolio[1]}}];
+      var day3 = [{{var_stocks_profolio[2]}}];
+      var day4 = [{{var_stocks_profolio[3]}}];
+      var day5 = [{{var_stocks_profolio[4]}}];
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Ticker', 'amount'],
+          [companys[0],  ratios[0] ],
+          [companys[1],  ratios[1] ],
+          [companys[2],  ratios[2] ],
+          [companys[3],  ratios[3] ] 
+        ]);
+
+        var options = {
+          title: 'Investment Strategy',
+          is3D: true,
+        };
+
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        piechart.draw(data, options);
+        
+
+        var dataLine = google.visualization.arrayToDataTable([
+          ['Day', 'price'],
+          ['Day1',  day1[0]],
+          ['Day2',  day2[0]],
+          ['Day3',  day3[0]],
+          ['Day4',  day4[0]],
+          ['Day5',  day5[0]]
+        ]);
+        var optionsLine = {
+          title: 'Weekly Trend',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };        
+        var linechart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        linechart.draw(dataLine, optionsLine);
+        
+        document.getElementById('com1').innerHTML = companys[0];
+        document.getElementById('com2').innerHTML = companys[1];
+        document.getElementById('com3').innerHTML = companys[2];
+        document.getElementById('com4').innerHTML = companys[3];
+        
+        document.getElementById('name1').innerHTML = names[0];
+        document.getElementById('name2').innerHTML = names[1];
+        document.getElementById('name3').innerHTML = names[2];
+        document.getElementById('name4').innerHTML = names[3];
+          
+        document.getElementById('strat1').innerHTML = strategy[0];
+        document.getElementById('strat2').innerHTML = strategy[1];
+        document.getElementById('strat3').innerHTML = strategy[2];
+        document.getElementById('strat4').innerHTML = strategy[3];
+          
+        var sum_ratio = ratios[0] + ratios[1] + ratios[2] + ratios[3];
+        var ratio1 = ratios[0];
+        var ratio2 = ratios[1];
+        var ratio3 = ratios[2];
+        var ratio4 = ratios[3];
+        
+        document.getElementById('ratio1').innerHTML = ratio1;
+        document.getElementById('ratio2').innerHTML = ratio2;
+        document.getElementById('ratio3').innerHTML = ratio3;
+        document.getElementById('ratio4').innerHTML = ratio4;
+          
+          
+        var amount1 = Math.round({{var_investment_amount}} * (ratios[0] / sum_ratio));
+        var amount2 = Math.round({{var_investment_amount}} * (ratios[1] / sum_ratio));
+        var amount3 = Math.round({{var_investment_amount}} * (ratios[2] / sum_ratio));
+        var amount4 = Math.round({{var_investment_amount}} * (ratios[3] / sum_ratio));
+          
+        document.getElementById('amount1').innerHTML = amount1;
+        document.getElementById('amount2').innerHTML = amount2;
+        document.getElementById('amount3').innerHTML = amount3;
+        document.getElementById('amount4').innerHTML = amount4;
+
+      }
+    </script>
+      
+    </script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">Stock Project by Team 2</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('static', filename='help.html') }}">Help</a></li>
+            <li><a href="{{ url_for('static', filename='team.html') }}">Our Team</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <script>   
+        function handleClick(cb) 
+        {
+            var count = 0;
+            if(document.getElementById("Check1").checked){count += 1;}
+            if(document.getElementById("Check2").checked){count += 1;}
+            if(document.getElementById("Check3").checked){count += 1;}
+            if(document.getElementById("Check4").checked){count += 1;}
+            if(document.getElementById("Check5").checked){count += 1;}
+            if(count > 2)
+            {
+                alert('Pick only one or two please.')
+                cb.checked = false;
+            }
+        }
+        
+       
+       
+    </script>
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <form class="input-data">
+                <br><br><br><br><br>
+                <input type="number" NAME="amt" id="amt" class="form-control" min="5000" max = "99999999" placeholder="Amout to invest (in $)..." required><br>
+                <b>Pick one or two strategies:</b><br> 
+                <INPUT class="single-checkbox" TYPE="checkbox" NAME="Check1" id="Check1" onclick="handleClick(this);"> Ethical Investing <br>
+                <INPUT class="single-checkbox" TYPE="checkbox" NAME="Check2" id="Check2" onclick="handleClick(this);"> Growth  Investing <br>
+                <INPUT class="single-checkbox" TYPE="checkbox" NAME="Check3" id="Check3" onclick="handleClick(this);"> Index Investing <br>
+                <INPUT class="single-checkbox" TYPE="checkbox" NAME="Check4" id="Check4" onclick="handleClick(this);"> Quality  Investing <br>
+                <INPUT class="single-checkbox" TYPE="checkbox" NAME="Check5" id="Check5" onclick="handleClick(this);"> Value Investing <br><br>
+                <input id="submit" type="button" name="submit" value="Submit" style="position: absolute; left:50px; height:40px;width:100px; border-radius: 25px;"><br>
+                
+                <br><br><br><br>
+                <output NAME="amt" id="latest_amt" placeholder="$ 0.0">$ 0.0</output><br>
+                <input id="submit1" type="button" name="submit1" value="Get Latest Value" style="position: absolute; left:50px; height:40px;width:120px; border-radius: 25px;"><br>
+            </form>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h3 class="sub-header">Investment distribution chart</h3>
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <div id="piechart_3d" style="width: 600px; height: 360px;"></div>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <div id="curve_chart" style="position: absolute; left:250px; width: 600px; height: 360px"></div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Investment Strategy</th>
+                  <th>Ticker Symbol</th>
+                  <th>Company</th>
+                  <th>Amount (in $)</th>
+                  <th>% Investment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td id="strat1">Ethical Investing</td>
+                  <td id="com1">company1</td>
+                  <td id="name1">Nestle</td>
+                  <td id="amount1">2000</td>
+                  <td id="ratio1">40</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td id="strat2">Ethical Investing</td>
+                  <td id="com2">ADBE</td>
+                  <td id="name2">Adobe</td>
+                  <td id="amount2">1000</td>
+                  <td id="ratio2">20</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td id="strat3">Index Investing</td>
+                  <td id="com3">VTI</td>
+                  <td id="name3">Vanguard Total Stock Market ETF</td>
+                  <td id="amount3">750</td>
+                  <td id="ratio3">15</td>
+                </tr>        
+                <tr>
+                  <td>4</td>
+                  <td id="strat4">Index Investing</td>
+                  <td id="com4">VTI</td>
+                  <td id="name4">Vanguard Total Stock Market ETF</td>
+                  <td id="amount4">750</td>
+                  <td id="ratio4">15</td>
+                </tr>         
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- <script src="../../assets/js/vendor/holder.min.js"></script> -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    
+    <script>
+        //google.setOnLoadCallback(initialize);
+        <!-- google.charts.load("current", {packages:["corechart"]}); -->
+        <!-- google.load("visualization", "1", {packages:["corechart"]}); -->
+        $(document).ready(function(){           
+            // click on button submit
+            $("#submit").on('click', function(){
+            
+                // click on button submit
+                //alert('Pick only one or two please.')
+                var inputdata = getpayloaddata();
+                if(inputdata == null)
+                {
+                    return;
+                }
+                console.log(inputdata);
+                
+                $.ajax({
+                    url: '/result', // url where to submit the request
+                    type : "post", // type of action post || get
+                    contentType:'application/json',
+                    datatype : 'json', // data type
+                    data : inputdata, // post data || get data
+                    success : function(result) {
+                        // you can see the result from the console
+                        // tab of the developer tools
+                        console.log(result);
+                        showoutput(result);
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+                })                    
+            });
+            function getpayloaddata()
+            {		
+                var stockObject = new Object();
+                var cnt = 0;
+                if(document.getElementById("Check1").checked){stockObject.ethical_chosen = 1; cnt++;}
+                if(document.getElementById("Check2").checked){stockObject.growth_chosen = 1; cnt++;}
+                if(document.getElementById("Check3").checked){stockObject.index_chosen = 1; cnt++;}
+                if(document.getElementById("Check4").checked){stockObject.quality_chosen = 1; cnt++;}
+                if(document.getElementById("Check5").checked){stockObject.value_chosen = 1; cnt++;}
+                
+                stockObject.amount = $('#amt').val();
+                if( stockObject.amount < 5000 )
+                {
+                    alert('Amount should be atleast $5000.')
+                    return null;
+                }
+                if( stockObject.amount > 99999999 )
+                {
+                    alert('Amount should be less than $99999999.')
+                    return null;
+                }
+                if( cnt == 0 )
+                {
+                    alert('Please pick a strategy.')
+                    return null;
+                }
+                var jsonstring = JSON.stringify(stockObject);
+                return jsonstring;			
+            }
+            
+            function showoutput(result)
+            {
+                var objOutput = $.parseJSON(result);
+                if( objOutput.errMsg === "SystemSymbol")
+                {
+                }
+                companys = [objOutput.Top3[0], objOutput.Top3[1], objOutput.Top3[2], objOutput.Top3[3]];
+                ratios = [objOutput.RatioList[0], objOutput.RatioList[1], objOutput.RatioList[2], objOutput.RatioList[3]];
+                day1 = [objOutput.PastInfo[0]];
+                day2 = [objOutput.PastInfo[1]];
+                day3 = [objOutput.PastInfo[2]];
+                day4 = [objOutput.PastInfo[3]];
+                day5 = [objOutput.PastInfo[4]];
+                strategy = [objOutput.Strategy[0], objOutput.Strategy[0], objOutput.Strategy[1], objOutput.Strategy[1] ];
+                names = [objOutput.Company[0], objOutput.Company[1], objOutput.Company[2], objOutput.Company[3]];
+                drawChart();
+            }
+            
+            // click on button - get latest value
+            $("#submit1").on('click', function(){
+            // alert('Pick only one or two please.')
+                $.ajax({
+                    url: '/getLatest', // url where to submit the request
+                    type : "post", // type of action post || get
+                    contentType:'application/json',
+                    datatype : 'json', // data type
+                    data : '',
+                    success : function(result) {
+                        console.log(result);
+                        document.getElementById('latest_amt').innerHTML = result;
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+                })                    
+            });
+        });
+    </script>
+  </body>
+</html>
